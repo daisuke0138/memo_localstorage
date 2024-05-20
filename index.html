@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>to do list</title>
+    <title>Job list</title>
     <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <script src="./js/script.js"></script>
+    
 </head>
 <body>
     <h1>Job List</h1>
 
     <!-- buttonタグ -->
     <div class="operation-bt">
-        <button class="new">新規</button>
-        <button class="save">保存</button>
-        <button class="dele">削除</button>
+        <button id="new">新規</button>
+        <button id="save">保存</button>
+        <button id="dele">削除</button>
+        <button id="reload">呼出し</button>
     </div>
 
     <!-- メモタイトル欄 -->
@@ -39,18 +40,20 @@
     </div>
 </div>
     <!-- format入力欄 -->
-    <div class="format-area">
-        <div class="memo-area">
-            <div class="memo-data">
-                <h2><業務内容></h2>
-                <input placeholder="タイトル"></input>
-                <input placeholder="作成日"></input>
-                <input placeholder="依頼者"></input>
-                <input placeholder="納期"></input>
-                <input placeholder="進捗％"></input>
-            </div>
-            <textarea name="" id="" cols="150" rows="21" placeholder="詳細"></textarea>
+<div class="format-area">
+    <div class="memo-area">
+        <div class="memo-data">
+            <h2><業務内容></h2>
+            <input id="title" placeholder="タイトル"></input>
+            <input id="date" placeholder="作成日"></input>
+            <input id="requester" placeholder="依頼者"></input>
+            <input id="d-line" placeholder="納期"></input>
+            <input id="progress" placeholder="進捗％"></input>
         </div>
-    </div>git
+        <textarea name="" id="detail-memo" cols="150" rows="21"placeholder="完了項目はcheck">
+        </textarea>
+    </div>
+</div>
+<script src="./js/script.js"></script>
 </body>
 </html>
