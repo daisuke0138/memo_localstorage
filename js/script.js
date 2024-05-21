@@ -22,6 +22,18 @@ document.getElementById('save').addEventListener('click', function () {
     // ローカルストレージのmemo1というキーとしてjson(メモ内容)を保存
     localStorage.setItem('memo1', json);
     alert('保存しました');
+    if (localStorage.getItem("memo1")) {
+        const json = localStorage.getItem("memo1");
+        const memo1 = JSON.parse(json);
+        const m_title1 = "件名:" + memo1.title1;
+        const m_d_line1 = "納期:" + memo1.d_line1;
+        const m_progress1 = "進捗:" + memo1.progress1;
+        // pタグに対してはinnerTextを使用
+        // inputタグに対してはvalueを使用
+        document.getElementById("title0").innerText = m_title1;
+        document.getElementById("d-line0").innerText = m_d_line1;
+        document.getElementById("progress0").innerText = m_progress1;
+    };
 });
 
 // 新規ボタンで入力内容を消去し、入力可能にする。
@@ -44,6 +56,9 @@ document.getElementById("dele").addEventListener("click", function () {
     document.getElementById("d-line").value = "";
     document.getElementById("progress").value = "";
     document.getElementById("detail-memo").value = "";
+    document.getElementById("title0").innerText = "";
+    document.getElementById("d-line0").innerText = "";
+    document.getElementById("progress0").innerText = "";
     alert("メモを削除しました");
 });
 
@@ -69,22 +84,17 @@ document.getElementById("reload").addEventListener("click", function () {
     document.getElementById("detail-memo").value = memo1.detail_memo1;
 });
 
-document.getElementById('detail-memo').addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        event.preventDefault();
+// 上部メモ欄に表示し続ける
+if (localStorage.getItem("memo1")){
+    const json = localStorage.getItem("memo1");
+    const memo1 = JSON.parse(json);
+    const m_title1 = "件名:" + memo1.title1;
+    const m_d_line1 = "納期:" + memo1.d_line1;
+    const m_progress1 = "進捗:" + memo1.progress1;
+// pタグに対してはinnerTextを使用
+// inputタグに対してはvalueを使用
+document.getElementById("title0").innerText = m_title1;
+document.getElementById("d-line0").innerText = m_d_line1;
+document.getElementById("progress0").innerText = m_progress1;
+};
 
-        const textarea = event.target;
-        const text = textarea.value;
-
-        // 改行ごとに分割して配列に変換
-        const lines = text.split('\n');
-
-        // 最後の行（最新の入力行）を取得
-        const latestLine = lines[lines.length - 1];
-
-        // チェックボックス付きリストに追加
-        addCheckboxListItem(latestLine);
-        // 改行を追加
-        textarea.value += '\n';
-    };
-});

@@ -12,9 +12,10 @@
 
     <!-- buttonタグ -->
     <div class="operation-bt">
-        <button id="new">新規</button>
+        <button id="new">新規作成</button>
         <button id="save">保存</button>
-        <button id="dele">削除</button>
+        <!-- <button id="overwrite">上書き</button> -->
+        <button id="dele">全削除</button>
         <button id="reload">呼出し</button>
     </div>
 
@@ -22,21 +23,9 @@
 <div class="title-area">
     <div class="title-t">
         <input type="checkbox" name="" id="">
-        <span>タイトル</span>
-        <span>納期</span>
-        <span>進捗10%</span>
-    </div>
-    <div class="title-t">
-        <input type="checkbox" name="" id="">
-        <span>タイトル</span>
-        <span>納期</span>
-        <span>進捗10%</span>
-    </div>
-    <div class="title-t">
-        <input type="checkbox" name="" id="">
-        <span>タイトル</span>
-        <span>納期</span>
-        <span>進捗10%</span>
+        <p id="title0"></p>
+        <p id="d-line0"></p>
+        <p id="progress0"></p>
     </div>
 </div>
     <!-- format入力欄 -->
@@ -50,7 +39,7 @@
             <input id="d-line" placeholder="納期"></input>
             <input id="progress" placeholder="進捗％"></input>
         </div>
-        <textarea name="" id="detail-memo" cols="150" rows="21"placeholder="完了項目はcheck">
+        <textarea name="" id="detail-memo" cols="150" rows="23"placeholder="業務詳細">
         </textarea>
     </div>
 </div>

@@ -19,16 +19,16 @@ h1{
 }
 
 button {
-    width: 5vw;
+    width: 6vw;
     cursor: grab;
 }
 
-.title-area {
-    padding: 1rem;
+.title-t{
+    display: flex;
 }
 
-.title-t{
-    padding: 0.1rem;
+p {
+    padding: 0.5vw;
 }
 
 .format-area {
