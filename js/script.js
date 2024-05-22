@@ -30,10 +30,10 @@ document.getElementById('save').addEventListener('click', function () {
     // メモタイトル欄へテキストの挿入
     if (localStorage.getItem(key_name)) {
         const json = localStorage.getItem(key_name);
-        const key_name = JSON.parse(json);
-        const m_title = "件名:" + key_name.title;
-        const m_d_line = "納期:" + key_name.d_line;
-        const m_progress = "進捗:" + key_name.progress;
+        const key_data = JSON.parse(json);
+        const m_title = "件名:" + key_data.title;
+        const m_d_line = "納期:" + key_data.d_line;
+        const m_progress = "進捗:" + key_data.progress;
 
         //新しいdiv,pタグを挿入  
         let newdiv_nom = localStorage.length;
@@ -45,7 +45,7 @@ document.getElementById('save').addEventListener('click', function () {
         newdiv.className = 'title-t';
         console.log(newdiv_nom);
         newdiv.innerHTML =
-        `<input type="checkbox"></input>
+        `<input type="checkbox">
         <p id="title${newdiv_nom}">${m_title}</p>
         <p id="d_line${newdiv_nom}">${m_d_line}</p>
         <p id="progress${newdiv_nom}">${m_progress}</p>
