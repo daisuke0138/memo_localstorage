@@ -116,7 +116,6 @@ window.addEventListener('load', function () {
 // チェックボックスをonしたメモをformエリアに読み込む。
 function checkCheckbox(checkbox) {
     if (checkbox.checked) {
-        console.log(checkbox.id);
         const key_name = "memo" + checkbox.id;
         document.getElementById("reload").addEventListener("click", function () {
             // formエリアを空欄にする
@@ -139,18 +138,17 @@ function checkCheckbox(checkbox) {
     };
 };
 
-// // チェックボックスをonしたメモを上書き保存
-// function checkCheckbox(checkbox) {
+// チェックボックスをonしたメモを上書き保存
+// function checkCheckbox2(checkbox) {
 //     if (checkbox.checked) {
 //         const key_name = "memo" + checkbox.id;
-//         console.log(key_name);
 //         document.getElementById('overwrite').addEventListener('click', function () {
-//         const title = document.getElementById('title').value;
-//         const date = document.getElementById('date').value;
-//         const requester = document.getElementById('requester').value;
-//         const d_line = document.getElementById('d-line').value;
-//         const progress = document.getElementById('progress').value;
-//         const detail_memo = document.getElementById('detail-memo').value;
+//             const title = document.getElementById('title').value;
+//             const date = document.getElementById('date').value;
+//             const requester = document.getElementById('requester').value;
+//             const d_line = document.getElementById('d-line').value;
+//             const progress = document.getElementById('progress').value;
+//             const detail_memo = document.getElementById('detail-memo').value;
 //             memo_data = {
 //                 title: title,
 //                 date: date,
@@ -159,22 +157,33 @@ function checkCheckbox(checkbox) {
 //                 progress: progress,
 //                 detail_memo: detail_memo,
 //             };
-//         console.log(memo_data);
-//         // jsonをJSON形式に変換したテキスト(メモ内容)として定義する
-//         const json = JSON.stringify(memo_data);
+//             console.log(memo_data);
+//             // jsonをJSON形式に変換したテキスト(メモ内容)として定義する
+//             const json = JSON.stringify(memo_data);
 //             localStorage.setItem(key_name, json);
             
-//             //新しいdiv,pタグを挿入  
-//             let newdiv_nom = checkbox.id;
-//             let newdiv_id = 'newdiv' + newdiv_nom;
-//             const newdiv = document.createElement("div");
-//             newdiv.id = newdiv_id;
-//             newdiv.className = 'title-t';
-//             newdiv.innerHTML =
-//                 `<input id="${newdiv_nom}" type="checkbox" onclick="checkCheckbox(this)">
-//             <p id="title${newdiv_nom}">${m_title}</p>
-//             <p id="d_line${newdiv_nom}">${m_d_line}</p>
-//             <p id="progress${newdiv_nom}">${m_progress}</p>`;
+//             if(localStorage.getItem(key_name)) {
+//                 const json = localStorage.getItem(key_name);
+//                 const key_data = JSON.parse(json);
+//                 const m_title = "件名:" + key_data.title;
+//                 const m_d_line = "納期:" + key_data.d_line;
+//                 const m_progress = "進捗:" + key_data.progress + "%";
+
+//                 //新しいdiv,pタグを挿入  
+//                 let newdiv_nom = localStorage.length;
+//                 console.log(newdiv_nom);
+//                 let newdiv_id = 'newdiv' + String(newdiv_nom);
+//                 const newdiv = document.createElement("div");
+//                 // divのidとクラス名を定義
+//                 newdiv.id = newdiv_id;
+//                 newdiv.className = 'title-t';
+//                 console.log(newdiv.id);
+//                 newdiv.innerHTML =
+//                 `<input id="${newdiv_nom}" type="checkbox" onclick="checkCheckbox2(this)">
+//                 <p id="title${newdiv_nom}">${m_title}</p>
+//                 <p id="d_line${newdiv_nom}">${m_d_line}</p>
+//                 <p id="progress${newdiv_nom}">${m_progress}</p>`;
+//             };
 //         });
 //     };
 // };
